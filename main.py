@@ -1,6 +1,6 @@
 import google.generativeai as genai
 import streamlit as st
-import PyPDF2
+import pypdf
 import io
 import os
 from dotenv import load_dotenv
@@ -25,7 +25,7 @@ analyze = st.button("Analyze Resume")
 
 #Gets text from uploaded PDF
 def extract_text_from_pdf(pdf_file):
-    pdf_reader = PyPDF2.PdfReader(pdf_file)
+    pdf_reader = pypdf.PdfReader(pdf_file)
     text = ""
     for page in pdf_reader.pages:
         text += page.extract_text() + "\n"
